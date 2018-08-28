@@ -26,37 +26,50 @@ cities = {
 }
 
 siblings_hash = {
-  alithu: 27,
-  beto: 22,
-  claudio: 20,
-  bebe: 29,
+  "alithu" => 27,
+  "beto" => 22,
+  "claudio" => 20,
+  "bebe" => 29,
+  "dad" => 52,
+  "gato" => 43,
 }
 
-puts "1. less than 25 yo siblings:"
-under_25 = siblings.select do |sibling|
-  sibling <= 25
+puts "1. The total population in cities hash is:"
+population_sum = cities.map { |k, v| v }.sum
+puts population_sum
+puts "****************************************"
+puts
+
+puts "2. Print out the names of your family and friends:"
+siblings_hash.each do |n, a|
+  if a <= 25
+    puts " -#{n.capitalize} is young"
+  else
+    puts " -#{n.capitalize} is not getting older, but better"
+  end
 end
-puts under_25
 puts "****************************************"
 puts
 
-puts "2. My oldest sybling is:"
-puts " #{siblings.max} years old"
+puts "3. Print the last two colours in your array of colours:"
+2.times do |e|
+  colour = fav_colours[-e - 1]
+  puts " -#{colour}"
+end
 puts "****************************************"
 puts
 
-puts "3. I flipped heads:"
-heads = coin_flip.select { |e| e == true }
-puts " #{heads.count} times"
+puts "4. Increace by 1 the age on your array of ages:"
+puts siblings
+ siblings.map! { |e| e + 1 }
+puts "****************************************"
+puts siblings
 puts "****************************************"
 puts
 
-puts "4. I removed this artist:"
-puts artists.delete_at(2)
-puts "****************************************"
-puts
-
-puts "5. New York population is:"
-puts " #{cities[:new_york] = 999999} people"
+puts "5. Add two colours to fav colours:"
+fav_colours << "magenta"
+fav_colours << "orange"
+puts fav_colours
 puts "****************************************"
 puts
